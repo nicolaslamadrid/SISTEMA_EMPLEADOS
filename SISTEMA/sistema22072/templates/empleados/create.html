@@ -1,0 +1,52 @@
+{% include 'header.html' %}
+{% with messages= get_flashed_messages() %}
+{% if messages %}
+ <div class="alert alert-danger" role="alert">
+ {% for message in messages %}
+ {{message}}
+ {% endfor %}
+ </div>
+{% endif %}
+{% endwith %}
+<br>
+<br>
+<br>
+<br>
+<form method="post" action="/store" enctype="multipart/form-data">
+
+    <div class="card">
+        <div class="card-header">
+            NUEVO EMPLEADO
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Datos de empleado </h5>
+            <p class="card-text"> 
+                
+                <div class="form-group">
+                    <label for="my-input">Nombre</label>
+                    <input class="form-control" type="text" name="txtNombre" id="txtNombre">
+                </div>
+              
+                <div class="form-group">
+                    <label for="my-input">Correo</label>
+                    <input class="form-control" type="text" name="txtCorreo" id="txtCorreo">
+                </div>
+               
+                <div class="form-group">
+                    <label for="my-input">Foto</label>
+                    <input class="form-control" type="file" name="txtFoto" id="txtFoto">
+                </div>
+                
+              
+            
+                <input class="btn btn-success" type="submit" value="Agregar">
+                <a onclick="return confirm('¿Seguro que desea salir?')" class="btn btn-danger" href="{{url_for('index')}}">Salir</a>
+
+            
+            </form></p>
+        </div>
+    </div>
+    
+   
+
+{% include 'footer.html' %}
